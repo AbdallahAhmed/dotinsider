@@ -36,6 +36,7 @@ return [
 
         'category_category_name' => 'category_category_name',
         'name' => 'Name',
+        'excerpt' => 'Excerpt',
         'slug' => 'Slug',
         'parent' => 'parent',
 

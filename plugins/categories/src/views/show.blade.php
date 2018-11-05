@@ -134,7 +134,7 @@
                                                 <a data-toggle="tooltip" data-placement="bottom"
                                                    title="{{ trans("categories::categories.show_children") }}"
                                                    class="text-navy"
-                                                   href="{{ route("admin.categories.show", array("id" => $category->id)) }}">
+                                                   href="{{ route("admin.categories.edit", array("id" => $category->id)) }}">
                                                     <strong>{{ $category->name }}</strong>
                                                 </a>
 

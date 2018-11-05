@@ -35,8 +35,7 @@
                                         {{$cat->name}}
                                     </p>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut
+                                        {{$cat->excerpt}}
                                     </p>
                                     <ul class="social-icons">
                                         <li><a href="#" target="_blank">FACEBOOK</a></li>

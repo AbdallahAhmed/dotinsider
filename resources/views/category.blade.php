@@ -10,16 +10,11 @@
                 </div>
                 <div class="text">
                     <p class="main-title-font zigzag">{{$category->name}}</p>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                        laborum.</p>
+                    <p class="description">{{$category->excerpt}}</p>
                     <div class="social">
-                        <a href="{{option('facebook')}}" target="_blank">FACEBOOK</a>
-                        <a href="{{option('twitter')}}" target="_blank">TWITTER</a>
-                        <a href="{{option('youtube')}}" target="_blank">YOUTUBE</a>
+                        <a href="{{option('facebook_page')}}" target="_blank">FACEBOOK</a>
+                        <a href="{{option('twitter_page')}}" target="_blank">TWITTER</a>
+                        <a href="{{option('youtube_page')}}" target="_blank">YOUTUBE</a>
                     </div>
                 </div>
             </div>

@@ -93,7 +93,8 @@ class CategoriesController extends Controller
             $category->name = Request::get('name');
             $category->slug = Request::get('slug');
             $category->image_id = Request::get('image_id');
-            $category->parent = Request::get('parent');
+            $category->parent = 0;
+            $category->excerpt = Request::get('excerpt');
             $category->user_id = Auth::user()->id;
             $category->status = 1;
             $category->lang = app()->getLocale();
@@ -136,7 +137,8 @@ class CategoriesController extends Controller
             $category->name = Request::get('name');
             $category->slug = Request::get('slug');
             $category->image_id = Request::get('image_id');
-            $category->parent = Request::get('parent');
+            $category->parent = 0;
+            $category->excerpt = Request::get('excerpt');
             $category->status = 1;
             $category->lang = app()->getLocale();
 

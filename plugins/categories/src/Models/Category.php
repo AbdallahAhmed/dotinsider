@@ -78,7 +78,8 @@ class Category extends Model
      */
     protected $creatingRules = [
         "name" => "required|unique:categories,name",
-        "slug" => "unique:categories,slug"
+        "slug" => "unique:categories,slug",
+        "excerpt" => "required"
     ];
 
     /*
@@ -86,7 +87,8 @@ class Category extends Model
      */
     protected $updatingRules = [
         "name" => "required|unique:categories,name,[id],id",
-        "slug" => "required|unique:categories,slug,[id],id"
+        "slug" => "required|unique:categories,slug,[id],id",
+        "excerpt" => "required"
     ];
 
     /*

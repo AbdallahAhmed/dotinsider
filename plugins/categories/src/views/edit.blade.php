@@ -67,30 +67,13 @@
                                        class="form-control" id="input-slug"
                                        placeholder="{{ trans("categories::categories.attributes.slug") }}">
                             </div>
-
-
                             <div class="form-group">
                                 <label
-                                    for="input-name">{{ trans("categories::categories.attributes.parent") }}</label>
-                                <select name="parent" class="form-control chosen-select chosen-rtl">
-                                    <option
-                                        value="0">{{ trans("categories::categories.parent_category") }}</option>
-                                    <?php
-                                    echo Dot\Categories\Models\Category::tree(array(
-                                        "row" => function ($row, $depth) use ($category) {
-                                            $html = '<option value="' . $row->id . '"';
-                                            if ($category and $category->parent == $row->id) {
-                                                $html .= 'selected="selected"';
-                                            }
-                                            $html .= '>' . str_repeat("&nbsp;", $depth * 10) . " - " . $row->name . '</option>';
-
-                                            if (!$category or ($category and $category->id != $row->id)) {
-                                                return $html;
-                                            }
-                                        }
-                                    ));
-                                    ?>
-                                </select>
+                                        for="input-slug">{{ trans("categories::categories.attributes.excerpt") }}</label>
+                                <input name="excerpt" type="text"
+                                       value="{{ @Request::old("excerpt", $category->excerpt) }}"
+                                       class="form-control" id="input-excerpt"
+                                       placeholder="{{ trans("categories::categories.attributes.excerpt") }}">
                             </div>
 
                         </div>

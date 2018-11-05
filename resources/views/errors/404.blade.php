@@ -25,11 +25,6 @@
                         <video poster="{{assets('assets')}}/img/404.png">
                             <source src="{{assets('assets')}}/img/small.webm">
                         </video>
-                        <div class="over-element bg-h">
-                            <a href="javascript:void(0)" class="play-icon">
-                                <i class="icon-play-icon"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <div class="triangle">
