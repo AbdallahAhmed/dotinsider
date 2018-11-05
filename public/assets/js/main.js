@@ -25,6 +25,22 @@ $(document).ready(function () {
         });*/
     });
 
+    var mySwiper = new Swiper('.item-channel .swiper-container', {
+        observeParents: true,
+        observer: true,
+        speed: 400,
+        loop: true,
+        slidesPerView: 4,
+        slideToClickedSlide: true,
+        direction: 'vertical',
+        breakpoints: {
+            786: {
+                slidesPerView: 4,
+                direction: 'horizontal'
+            },
+        }
+    });
+
     var mySwiper = new Swiper('.slider-1 .swiper-container', {
         speed: 400,
         navigation: {

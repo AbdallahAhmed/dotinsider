@@ -22,9 +22,18 @@
                     Channels
                 </a>
                 <div class="item-channel">
-                    @foreach($cats as $cat)
-                        <a href="{{$cat->path}}"><img src="{{thumbnail($cat->image->path, 'cat-footer-logo')}}" alt="{{$cat->slug}}"></a>
-                    @endforeach
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            @foreach($cats as $cat)
+                                <div class="swiper-slide">
+                                    <a href="{{$cat->path}}"><img
+                                                src="{{thumbnail($cat->image->path, 'cat-footer-logo')}}"
+                                                alt="{{$cat->slug}}"></a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </li>
             <li>
