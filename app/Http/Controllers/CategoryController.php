@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
 
         $offset = $request->get('offset', 0);
-        $limit = $request->get('limit', 2);
+        $limit = $request->get('limit', 12);
 
         $categories = Category::whereHas('seasons', function ($query) {
             $query->whereHas('posts', function ($query) {
