@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 76">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000;
+      }
+    </style>
+  </defs>
+  <g id="Play_icon" data-name="Play icon" transform="translate(-0.05 -0.05)">
+    <g id="Group_45" data-name="Group 45" transform="translate(0.05 0.05)">
+      <path id="Path_140" data-name="Path 140" class="cls-1" d="M11.162,64.938a38.025,38.025,0,1,1,53.776,0A38.087,38.087,0,0,1,11.162,64.938ZM63.017,13.082a35.309,35.309,0,1,0,0,49.935A35.438,35.438,0,0,0,63.017,13.082Z" transform="translate(-0.05 -0.05)"/>
+    </g>
+    <path id="Path_141" data-name="Path 141" class="cls-1" d="M11.9,9.9V31.575l17.011-10.7Z" transform="translate(20.663 17.175)"/>
+  </g>
+</svg>

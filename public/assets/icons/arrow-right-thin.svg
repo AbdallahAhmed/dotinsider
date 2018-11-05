@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.1 6.701">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000;
+      }
+    </style>
+  </defs>
+  <path id="arrow-right-thin" class="cls-1" d="M-6953.351-4205.3h2.8V-4219h1.1v13.7h2.8l-3.3,3.4Z" transform="translate(4219 -6946.649) rotate(-90)"/>
+</svg>
