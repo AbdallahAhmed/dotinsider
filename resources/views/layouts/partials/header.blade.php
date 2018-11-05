@@ -41,18 +41,18 @@
         <div class="social-icons">
             <ul>
                 <li>
-                    <a href="{{option('facebook')}}">
+                    <a href="{{option('facebook_page')}}">
                         FACEBOOK
                     </a>
                 </li>
                 <li>
-                    <a href="{{option('twitter')}}">
+                    <a href="{{option('twitter_page')}}">
                         TWITTER
                     </a>
                 </li>
                 <li>
 
-                    <a href="{{option('youtube')}}">
+                    <a href="{{option('youtube_page')}}">
                         YOUTUBE
                     </a>
                 </li>

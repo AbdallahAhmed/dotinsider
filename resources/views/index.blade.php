@@ -63,9 +63,9 @@
                         occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
                         laborum.</p>
                     <div class="social">
-                        <a href="{{option('facebook')}}" target="_blank">FACEBOOK</a>
-                        <a href="{{option('twitter')}}" target="_blank">TWITTER</a>
-                        <a href="{{option('youtube')}}" target="_blank">YOUTUBE</a>
+                        <a href="{{option('facebook_page')}}" target="_blank">FACEBOOK</a>
+                        <a href="{{option('twitter_page')}}" target="_blank">TWITTER</a>
+                        <a href="{{option('youtube_page')}}" target="_blank">YOUTUBE</a>
                     </div>
                 </div>
             </div>
