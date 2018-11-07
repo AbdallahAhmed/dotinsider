@@ -18,7 +18,7 @@
                 <i class="icon-play-icon"></i>
             </a>
             <p class="text-title second-title-font black-color d-inline-block">
-               {!! $post->slug !!}
+               {!! $post->title !!}
             </p>
         </div>
     </div>

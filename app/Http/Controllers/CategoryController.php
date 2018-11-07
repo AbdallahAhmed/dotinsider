@@ -52,7 +52,13 @@ class CategoryController extends Controller
                 $query->published();
             });
         })->firstOrFail();
-        $seasons = $category->seasons()->get();
+
+        $seasons = $category
+            ->seasons()
+            ->whereHas('posts', function ($query) {
+                $query->published();
+            })
+            ->get();
         $slider_posts = $seasons[0]->posts;
 
         $posts = array();

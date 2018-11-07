@@ -115,8 +115,8 @@ $(document).ready(function () {
         let link = $(this).data('link');
         $('#video').attr('src', link);
         $('#video').attr('poster', $(this).data('poster'));
-        $('#wrapper-body').hide(200);
-        $('#popframe').show(400)
+        $('#wrapper-body').hide();
+        $('#popframe').show(500)
         var div = $('#video-container');
         var height = div.height();
         var width = div.width();
@@ -161,44 +161,11 @@ $(document).ready(function () {
         $('.menu-content').toggle();
         $(this).find('span').toggle();
     })
-    //validation-contact
-    $('#contact-form').submit(function (e) {
-
-        e.preventDefault()
-        $('input ,textarea').each(function (index, el) {
-            var dataLenghth = $(el).val().length;
-            var minCharacters = $(el).attr('min-characters');
-            var maxCharacters = $(el).attr('max-characters');
-            console.log(dataLenghth)
-
-            if (dataLenghth == 0) {
-                $(el).parent().append('<p >Please fill this field</p>')
-            }
-            else {
-                $(el).parent().find('p').remove();
-                if (dataLenghth < minCharacters) {
-                    if ($(el).parent().hasClass('phone')) {
-                        $(el).parent().append('<p >Phone number should be ' + minCharacters + ' number </p>')
-                    }
-                    else {
-                        $(el).parent().append('<p >data sholud be greater than ' + minCharacters + ' </p>')
-                    }
-                }
-                else if (dataLenghth > maxCharacters) {
-                    if ($(el).parent().hasClass('phone')) {
-                        $(el).parent().append('<p >Phone number should be ' + minCharacters + ' number </p>')
-                    }
-                    else
-                        $(el).parent().append('<p >data sholud be less than ' + maxCharacters + ' </p>')
-                }
-            }
-        })
-    })
 });
 
 function closePopup() {
-    $('#popframe').hide(200)
-    $('#wrapper-body').show(400);
+    $('#popframe').hide()
+    $('#wrapper-body').show(600);
     $(document).scrollTop(Window.top);
     $('iframe').remove();
     $('#video-container').prepend('<video src="" poster="" id="video"></video>')

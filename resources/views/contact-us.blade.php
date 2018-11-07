@@ -8,22 +8,31 @@
                 <p class="title-section main-title-font zigzag d-inline-block">Contact us</p>
                 <div class="d-inline-block main-title-font smaller w-75 margin-20">How can we help?</div>
                 <p class="main-title-font zigzag d-inline-block title-form">Contact form</p>
+                <style>
+                    #contact-form p{
+                        display: none;
+                    }
+                </style>
                 <form class="d-inline-block" id="contact-form">
                     <div class="frist-input d-inline-block">
                         <input type="text" placeholder="FIRST NAME" name="first_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
-
+                        <p id="ef">First name should be between 3 and 50 letter </p>
                     </div>
                     <div class="frist-input d-inline-block">
                         <input type="text" placeholder="LAST NAME" name="last_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
+                        <p id="el">Last name should be between 3 and 50 letter </p>
                     </div>
                     <div class="frist-input d-inline-block phone">
                         <input type="text" pattern="[0-9]*" name="number" placeholder="PHONE NUMBER" minlength="11" maxlength="11" min-characters="11" max-characters="11" required>
+                        <p id="ep">Phone number should be 11 number </p>
                     </div>
                     <div class="frist-input d-inline-block">
                         <input type="email" placeholder="EMAIL" name="email" minlength="6" maxlength="50" min-characters="6" max-characters="50" required>
+                        <p id="ee">Please fill this with a valid email</p>
                     </div>
                     <div class="frist-input message">
                         <textarea placeholder="YOUR MESSAGE" name="message" minlength="3" maxlength="1000" min-characters="3" max-characters="1000"></textarea>
+                        <p id="em">Please fill this field</p>
                     </div>
 
                     <div>
@@ -80,10 +89,13 @@
                             $('.message-2').show(200);
                         },
                         error:function () {
-                            alert("Internal server error")
+                            alert("Internal server error");
+                            $('.send').show();
                         }
                     })
                 }
+                else
+                    $('.send').show();
             });
 
             function validate(arr) {
@@ -92,34 +104,34 @@
                 name_regex =  /^[a-zA-Z\s]*$/;
 
                 if(arr.name.length < 3 || arr.name.length > 50 || !name_regex.test(arr.name)){
-                    //$('#error_first_name').show();
+                    $('#ef').show();
                     valid = false;
                 }else{
-                    //$('#error_first_name').hide();
+                    $('#ef').hide();
                 }
                 if(arr.last.length < 3 || arr.last.length > 50 || !name_regex.test(arr.last)){
-                   // $('#error_last_name').show();
+                    $('#el').show();
                     valid = false;
                 }else{
-                   // $('#error_last_name').hide();
+                    $('#el').hide();
                 }
                 if(arr.number.length !== 11){
-                    $('#error_number').show();
+                    $('#en').show();
                     valid = false;
                 }else{
-                   // $('#error_number').hide();
+                   $('#en').hide();
                 }
                 if(!regex.test(arr.email)){
-                   // $('#error_email').show();
+                   $('#ee').show();
                     valid = false;
                 }else{
-                    //$('#error_email').hide();
+                    $('#ee').hide();
                 }
                 if(arr.message.length < 3 || arr.message.length > 1000){
-                    //$('#error_message').show();
+                    $('#em').show();
                     valid = false;
                 }else{
-                   // $('#error_message').hide();
+                   $('#em').hide();
                 }
                 return valid;
             }
