@@ -81,28 +81,28 @@ $(document).ready(function () {
             }
         }
     });
-   /* var mySwiper = new Swiper('.home .slider-2 .swiper-container', {
-        speed: 400,
-        loop: true,
-        slidesPerView: 4,
-        slideToClickedSlide: true,
-        navigation: {
-            nextEl: '.slider-2 .swiper-button-next',
-            prevEl: '.slider-2 .swiper-button-prev',
-        },
-        breakpoints: {
-            1024: {
-                slidesPerView: 3,
-            },
-            786: {
-                slidesPerView: 4,
-                navigation: {
-                    nextEl: null,
-                    prevEl: null
-                }
-            },
-        }
-    });*/
+    /* var mySwiper = new Swiper('.home .slider-2 .swiper-container', {
+         speed: 400,
+         loop: true,
+         slidesPerView: 4,
+         slideToClickedSlide: true,
+         navigation: {
+             nextEl: '.slider-2 .swiper-button-next',
+             prevEl: '.slider-2 .swiper-button-prev',
+         },
+         breakpoints: {
+             1024: {
+                 slidesPerView: 3,
+             },
+             786: {
+                 slidesPerView: 4,
+                 navigation: {
+                     nextEl: null,
+                     prevEl: null
+                 }
+             },
+         }
+     });*/
 
 
     $('.open-popup').click(function () {
@@ -178,6 +178,40 @@ $(document).ready(function () {
             scrollTop: $('section:nth-of-type(2)').offset().top
         }, 'slow');
     })
+
+
+    //scroll
+    $.fn.isInViewport = function () {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
+    $('.card').each(function () {
+        if ($(this).isInViewport()) {
+            $(this).css({
+                opacity: '1',
+                transform: 'translateY(-10px)'
+            });
+        }
+    });
+
+    $(window).on('resize scroll', function () {
+        $('.card').each(function () {
+            if ($(this).isInViewport()) {
+                $(this).css({
+                    opacity: '1',
+                    transform: 'translateY(-10px)'
+                });
+            }
+        });
+    });
+
+
 });
 
 function closePopup() {
@@ -187,4 +221,3 @@ function closePopup() {
     $('iframe').remove();
     $('#video-container').prepend('<video src="" poster="" id="video"></video>')
 }
-
