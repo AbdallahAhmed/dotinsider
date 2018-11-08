@@ -24,7 +24,7 @@
     @show
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-    <link rel="icon" type="image/png" href="{{asset('assets')}}/images/fav.png">
+    <link rel="icon" type="image/png" href="{{asset('assets')}}/img/Dotinsider.png">
 
     <title> @yield("title")</title>
     <script>
