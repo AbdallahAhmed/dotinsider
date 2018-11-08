@@ -65,7 +65,6 @@
         <script>
 
             $('#contact-form').submit(function (e) {
-                $('.send').hide();
                 arr = {
                     'name': $('[name="first_name"]').val(),
                     'last': $('[name="last_name"]').val(),
@@ -90,12 +89,9 @@
                         },
                         error:function () {
                             alert("Internal server error");
-                            $('.send').show();
                         }
                     })
                 }
-                else
-                    $('.send').show();
             });
 
             function validate(arr) {

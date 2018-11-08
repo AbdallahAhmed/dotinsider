@@ -141,6 +141,8 @@
                                     prevEl: '.slider-1 .swiper-button-prev',
                                 },
                             });
+
+                           // $('.cards').hide().html(data.view).show(500);
                         }
                     })
                 })

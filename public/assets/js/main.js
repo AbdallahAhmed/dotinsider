@@ -43,6 +43,9 @@ $(document).ready(function () {
 
     var mySwiper = new Swiper('.slider-1 .swiper-container', {
         speed: 400,
+        autoplay: {
+            delay: 5000,
+        },
         navigation: {
             nextEl: '.slider-1 .swiper-button-next',
             prevEl: '.slider-1 .swiper-button-prev',
@@ -160,6 +163,14 @@ $(document).ready(function () {
         $('.to-hide').toggle();
         $('.menu-content').toggle();
         $(this).find('span').toggle();
+    })
+
+    $('#scroll a').click(function (e) {
+        // Prevent a page reload when a link is pressed
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: $('section:nth-of-type(2)').offset().top
+        }, 'slow');
     })
 });
 

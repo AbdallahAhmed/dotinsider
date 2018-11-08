@@ -17,6 +17,7 @@ class SeasonController extends Controller
 
         return response()->json([
             'view' => view('extensions.category-slider',['posts' => $this->data['posts']])->render(),
+            //'view' => view('extensions.index-videos',['posts' => $this->data['posts']])->render(),
             'count' => count($this->data['posts'])
         ]);
     }

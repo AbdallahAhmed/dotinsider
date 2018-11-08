@@ -112,6 +112,9 @@
                 loop: true,
                 slidesPerView: catCount,
                 slideToClickedSlide: true,
+                autoplay: {
+                    delay: 5000,
+                },
                 navigation: {
                     nextEl: '.slider-2 .swiper-button-next',
                     prevEl: '.slider-2 .swiper-button-prev',

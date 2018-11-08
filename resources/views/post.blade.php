@@ -19,8 +19,8 @@
                     </div>
                 </div>
 
-                <div class="back-home">
-                    <a href="">
+                <div class="back-home" id="scroll">
+                    <a href="javascript:void(0)">
                         EXPLORE NOW
                         <i class="icon-arrow-right"></i>
                     </a>
