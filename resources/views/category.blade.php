@@ -136,6 +136,9 @@
                             $('#cat-slider').html(data.view)
                             var mySwiper = new Swiper('.slider-1 .swiper-container', {
                                 speed: 400,
+                                autoplay: {
+                                    delay: 5000,
+                                },
                                 navigation: {
                                     nextEl: '.slider-1 .swiper-button-next',
                                     prevEl: '.slider-1 .swiper-button-prev',

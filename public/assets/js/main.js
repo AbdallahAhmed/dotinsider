@@ -33,6 +33,9 @@ $(document).ready(function () {
         slidesPerView: 4,
         slideToClickedSlide: true,
         direction: 'vertical',
+        autoplay: {
+            delay: 5000,
+        },
         breakpoints: {
             786: {
                 slidesPerView: 4,
@@ -55,6 +58,9 @@ $(document).ready(function () {
         speed: 400,
         slidesPerView: 4,
         slideToClickedSlide: true,
+        autoplay: {
+            delay: 5000,
+        },
         navigation: {
             nextEl: '.slider-2 .swiper-button-next',
             prevEl: '.slider-2 .swiper-button-prev',
