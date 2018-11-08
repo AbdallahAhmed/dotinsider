@@ -15,11 +15,11 @@
                 </style>
                 <form class="d-inline-block" id="contact-form">
                     <div class="frist-input d-inline-block">
-                        <input type="text" placeholder="FIRST NAME" name="first_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
+                        <input type="text" placeholder="FIRST NAME" pattern="^[A-Za-z -]+$" name="first_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
                         <p id="ef">First name should be between 3 and 50 letter </p>
                     </div>
                     <div class="frist-input d-inline-block">
-                        <input type="text" placeholder="LAST NAME" name="last_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
+                        <input type="text" placeholder="LAST NAME" pattern="^[A-Za-z -]+$" name="last_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
                         <p id="el">Last name should be between 3 and 50 letter </p>
                     </div>
                     <div class="frist-input d-inline-block phone">
@@ -65,7 +65,6 @@
         <script>
 
             $('#contact-form').submit(function (e) {
-                $('#contact-form').hide(1500);
                 arr = {
                     'name': $('[name="first_name"]').val(),
                     'last': $('[name="last_name"]').val(),
@@ -85,6 +84,7 @@
                         url: "{{route('contact-us.store')}}",
                         data: arr,
                         success: function () {
+                            $('#contact-form').hide();
                             $('.message-2').show(200);
                         },
                         error:function () {
@@ -92,14 +92,12 @@
                         }
                     })
                 }
-                else
-                    $('#contact-form').show(500);
             });
 
             function validate(arr) {
                 var valid = true;
                 regex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-                name_regex =  /^[a-zA-Z\s]*$/;
+                name_regex =  /^[a-zA-Z - ]*$/;
 
                 if(arr.name.length < 3 || arr.name.length > 50 || !name_regex.test(arr.name)){
                     $('#ef').show();

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Dotinsider')
+@section('title','Dotinsider | '. $page->title)
 @section('content')
     <section class="bg-section about">
         <div class="container">
@@ -49,6 +49,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="bg-circle">
+            <img src="{{assets('assets')}}/img/Elements-Circle.png" alt="">
+        </div>
+        <div class="bg-cuboid">
+            <img src="{{assets('assets')}}/img/Elements-Cuboid.png" alt="">
+        </div>
+        <div class="bg-triangle-up">
+            <img src="{{assets('assets')}}/img/Elements-Triangle-2.png" alt="">
+        </div>
+        <div class="bg-group">
+            <img src="{{assets('assets')}}/img/absoluteGroup.png" alt="">
+        </div>
     </section>
 @endsection
 @section('footer')
