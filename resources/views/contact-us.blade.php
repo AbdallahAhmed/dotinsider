@@ -65,6 +65,7 @@
         <script>
 
             $('#contact-form').submit(function (e) {
+                $('#contact-form').hide(1500);
                 arr = {
                     'name': $('[name="first_name"]').val(),
                     'last': $('[name="last_name"]').val(),
@@ -84,7 +85,6 @@
                         url: "{{route('contact-us.store')}}",
                         data: arr,
                         success: function () {
-                            $('#contact-form').hide(200);
                             $('.message-2').show(200);
                         },
                         error:function () {
@@ -92,6 +92,8 @@
                         }
                     })
                 }
+                else
+                    $('#contact-form').show(500);
             });
 
             function validate(arr) {
