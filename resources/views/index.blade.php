@@ -8,7 +8,7 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         @foreach($cats as $cat)
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" data-id="{{$cat->id}}">
                                 <a href="javascript:void(0)"><img
                                             src="{{thumbnail($cat->image->path, 'cat-footer-logo')}}" alt=""></a>
                             </div>
@@ -25,7 +25,7 @@
 
             <div class="slider-1 rtl-container rtl right-mrg to-hide">
                 <div class="swiper-container video-container" dir="ltr">
-                    <div class="swiper-wrapper ">
+                    <div class="swiper-wrapper " id="cat-slider">
                         @foreach($posts_slider as $post)
                             <div class="swiper-slide">
                                 <img src="{{thumbnail($post->image->path, 'main-slider')}}">
@@ -106,34 +106,62 @@
 
     @push('scripts')
         <script>
-            var catCount = "{{count($cats) >= 4 ? 4 :count($cats)  }}";
-            var mySwiper = new Swiper('.home .slider-2 .swiper-container', {
-                speed: 400,
-                loop: true,
-                slidesPerView: catCount,
-                slideToClickedSlide: true,
-                autoplay: {
-                    delay: 5000,
-                },
-                navigation: {
-                    nextEl: '.slider-2 .swiper-button-next',
-                    prevEl: '.slider-2 .swiper-button-prev',
-                },
-                breakpoints: {
-                    1024: {
-                        slidesPerView: catCount,
-                    },
-                    786: {
-                        slidesPerView: catCount,
-                        navigation: {
-                            nextEl: null,
-                            prevEl: null
-                        }
-                    },
-                }
-            });
-
             $(function () {
+                var catCount = "{{count($cats) >= 4 ? 4 :count($cats)  }}";
+                var mySwiper = new Swiper('.home .slider-2 .swiper-container', {
+                    speed: 400,
+                    loop: true,
+                    slidesPerView: catCount,
+                    slideToClickedSlide: true,
+                    autoplay: {
+                        delay: 5000,
+                    },
+                    navigation: {
+                        nextEl: '.slider-2 .swiper-button-next',
+                        prevEl: '.slider-2 .swiper-button-prev',
+                    },
+                    breakpoints: {
+                        1024: {
+                            slidesPerView: catCount,
+                        },
+                        786: {
+                            slidesPerView: catCount,
+                            navigation: {
+                                nextEl: null,
+                                prevEl: null
+                            }
+                        },
+                    },
+                });
+                mySwiper.on('slideChange', function (e) {
+                    var id = $('.swiper-slide-active').data('id');
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "post",
+                        url: "{{route('season.posts')}}",
+                        data: {season_id: id},
+                        success: function (data) {
+                            $('#cat-slider').html(data.view)
+                            var mySwiper = new Swiper('.slider-1 .swiper-container', {
+                                speed: 400,
+                                autoplay: {
+                                    delay: 5000,
+                                },
+                                navigation: {
+                                    nextEl: '.slider-1 .swiper-button-next',
+                                    prevEl: '.slider-1 .swiper-button-prev',
+                                },
+                            });
+
+                        }
+                    })
+                });
+
+
                 offset = 12
                 $('.btn-more').on('click', function (e) {
                     e.preventDefault();
@@ -150,7 +178,7 @@
                         async: false,
                         success: function (data) {
                             if (data.count > 0) {
-                                $(data.view).hide().insertBefore('.insert-more').fadeIn(800);
+                                $(data.view).insertBefore('.insert-more');
                                 offset += data.count;
                             }
                             if (data.count < 12)

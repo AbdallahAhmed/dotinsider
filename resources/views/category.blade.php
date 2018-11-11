@@ -133,7 +133,7 @@
                         url: "{{route('season.posts')}}",
                         data: {season_id: $(this).data('id')},
                         success: function (data) {
-                            $('#cat-slider').html(data.view)
+                           /* $('#cat-slider').html(data.view)
                             var mySwiper = new Swiper('.slider-1 .swiper-container', {
                                 speed: 400,
                                 autoplay: {
@@ -143,9 +143,9 @@
                                     nextEl: '.slider-1 .swiper-button-next',
                                     prevEl: '.slider-1 .swiper-button-prev',
                                 },
-                            });
+                            });*/
 
-                           // $('.cards').hide().html(data.view).show(500);
+                            $('.cards').hide().html(data.view).show(500);
                         }
                     })
                 })

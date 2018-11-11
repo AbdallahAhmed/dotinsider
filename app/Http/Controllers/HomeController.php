@@ -45,7 +45,9 @@ class HomeController extends Controller
             ->get();
 
         $this->data['cats'] = Category::whereHas('seasons', function ($query) {
-            $query->whereHas('posts');
+            $query->whereHas('posts', function ($query){
+                $query->published();
+            });
         })->take(12)->get();
 
 
