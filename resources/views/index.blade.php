@@ -144,9 +144,9 @@
                         url: "{{route('category.posts')}}",
                         data: {category_id: id},
                         success: function (data) {
-                            $('#cat-slider').html(data.view)
                             destroy = document.querySelector('.slider-1 .swiper-container').swiper;
                             destroy.destroy();
+                            $('#cat-slider').html(data.view)
                             var videoSwiper = new Swiper('.slider-1 .swiper-container', {
                                 speed: 400,
                                 autoplay: {
