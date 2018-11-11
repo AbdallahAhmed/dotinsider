@@ -14,6 +14,7 @@ Route::get('/', ['uses' => 'HomeController@index'])->name('index');
 Route::get('/contact-us', ['uses' => 'HomeController@contactForm'])->name('contact-us.form');
 Route::post('/contact-us', ['uses' => 'HomeController@contact'])->name('contact-us.store');
 Route::get('/category/{slug}', ['uses' => 'CategoryController@show'])->name('category.show');
+Route::post('/category', ['uses' => 'CategoryController@posts'])->name('category.posts');
 Route::get('/categories', ['uses' => 'CategoryController@index'])->name('categories');
 Route::get('/video/{slug}', ['uses' => 'HomeController@show'])->name('posts.show');
 Route::post('/subscribe', ['uses' => 'HomeController@subscribe'])->name('subscribe');

@@ -24,7 +24,7 @@ class PageController extends Controller
            $query->whereHas('posts', function ($query){
                $query->published();
            });
-        })->take(5)->get();
+        })->get();
         return view('page-details', $this->data);
     }
 }

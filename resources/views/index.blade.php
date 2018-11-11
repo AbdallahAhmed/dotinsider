@@ -8,7 +8,7 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         @foreach($cats as $cat)
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" data-id="{{$cat->id}}">
                                 <a href="javascript:void(0)"><img
                                             src="{{thumbnail($cat->image->path, 'cat-footer-logo')}}" alt=""></a>
                             </div>
@@ -25,9 +25,9 @@
 
             <div class="slider-1 rtl-container rtl right-mrg to-hide">
                 <div class="swiper-container video-container" dir="ltr">
-                    <div class="swiper-wrapper ">
+                    <div class="swiper-wrapper" id="cat-slider">
                         @foreach($posts_slider as $post)
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" data-url="{{$post->category->path}}">
                                 <img src="{{thumbnail($post->image->path, 'main-slider')}}">
                                 <div class="over-element bg-h">
                                     <a href="javascript:void(0)" class="open"
@@ -51,8 +51,6 @@
                     <i class="icon-arrow-right"></i>
                 </div>
             </div>
-
-
             <div class="channel to-hide">
                 <div class="text">
                     <p class="main-title-font zigzag">FEL 90</p>
@@ -69,13 +67,10 @@
                     </div>
                 </div>
             </div>
-
             <div class="bg-v to-hide">
                 <a href="{{route('categories')}}" class="read">SEE ALL</a>
-                <a href="#" class="see">READ MORE</a>
+                <a href="{{$posts_slider ? $posts_slider[0]->category->path : '#'}}" class="see" id="read-more">READ MORE</a>
             </div>
-
-
         </div>
         <div class="bg-circle">
             <img src="{{assets('assets')}}/img/Elements-Circle.png" alt="">
@@ -106,34 +101,72 @@
 
     @push('scripts')
         <script>
-            var catCount = "{{count($cats) >= 4 ? 4 :count($cats)  }}";
-            var mySwiper = new Swiper('.home .slider-2 .swiper-container', {
-                speed: 400,
-                loop: true,
-                slidesPerView: catCount,
-                slideToClickedSlide: true,
-                autoplay: {
-                    delay: 5000,
-                },
-                navigation: {
-                    nextEl: '.slider-2 .swiper-button-next',
-                    prevEl: '.slider-2 .swiper-button-prev',
-                },
-                breakpoints: {
-                    1024: {
-                        slidesPerView: catCount,
-                    },
-                    786: {
-                        slidesPerView: catCount,
-                        navigation: {
-                            nextEl: null,
-                            prevEl: null
-                        }
-                    },
-                }
-            });
-
             $(function () {
+                var catCount = "{{count($cats) >= 4 ? 4 :count($cats)  }}";
+                var mySwiper = new Swiper('.home .slider-2 .swiper-container', {
+                    speed: 400,
+                    loop: true,
+                    slidesPerView: catCount,
+                    slideToClickedSlide: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    },
+                    navigation: {
+                        nextEl: '.slider-2 .swiper-button-next',
+                        prevEl: '.slider-2 .swiper-button-prev',
+                    },
+                    breakpoints: {
+                        1024: {
+                            slidesPerView: catCount,
+                        },
+                        786: {
+                            slidesPerView: catCount,
+                            navigation: {
+                                nextEl: null,
+                                prevEl: null
+                            }
+                        },
+                    },
+                });
+                document.querySelector('.slider-1 .swiper-container').swiper.on('slideChange', function () {
+                    $('#read-more').attr('href',$('#cat-slider').find('.swiper-slide-active').data('url') );
+                });
+                mySwiper.on('slideChange',  function () {
+                    var id = $('.slider-2').find('.swiper-slide-active').data('id');
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        type: "post",
+                        url: "{{route('category.posts')}}",
+                        data: {category_id: id},
+                        success: function (data) {
+                            $('#cat-slider').html(data.view)
+                            destroy = document.querySelector('.slider-1 .swiper-container').swiper;
+                            destroy.destroy();
+                            var videoSwiper = new Swiper('.slider-1 .swiper-container', {
+                                speed: 400,
+                                autoplay: {
+                                    delay: 5000,
+                                    disableOnInteraction: false
+                                },
+                                navigation: {
+                                    nextEl: '.slider-1 .swiper-button-next',
+                                    prevEl: '.slider-1 .swiper-button-prev',
+                                },
+                            });
+                            readURL = $('#cat-slider').find('.swiper-slide-active').data('url');
+                            $('#read-more').attr('href', readURL);
+                            videoSwiper.on('slideChange', function () {
+                                $('#read-more').attr('href', readURL);
+                            });
+                        }
+                    })
+                });
+
                 offset = 12
                 $('.btn-more').on('click', function (e) {
                     e.preventDefault();

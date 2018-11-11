@@ -8,6 +8,7 @@ use App\Models\Block;
 use Dot\Categories\Models\Category;
 use Dot\Posts\Models\Post;
 use Dot\Platform\Classes\Carbon;
+use Dot\Seasons\Models\Season;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -37,17 +38,12 @@ class HomeController extends Controller
             ]);
         }
 
-        $this->data['posts_slider'] = Block::where('slug', '=', 'home-slider')
-            ->first()
-            ->posts()
-            ->published()
-            ->take(5)
-            ->get();
 
         $this->data['cats'] = Category::whereHas('seasons', function ($query) {
-            $query->whereHas('posts');
+            $query->has('posts');
         })->take(12)->get();
 
+        $this->data['posts_slider'] = $this->data['cats'] ? $this->data['cats'][0]->seasons()->first()->posts : [];
 
         return view('index', $this->data);
     }

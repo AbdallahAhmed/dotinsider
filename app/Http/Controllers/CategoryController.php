@@ -80,5 +80,16 @@ class CategoryController extends Controller
         return view('category', $this->data);
     }
 
+    public function posts(Request $request){
+        $id = $request->get('category_id');
+        $posts = Category::find($id)->seasons()->first()->posts;
+        $this->data['posts'] = $posts;
+
+        return response()->json([
+            'view' => view('extensions.category-slider',['posts' => $this->data['posts']])->render(),
+            'count' => count($this->data['posts'])
+        ]);
+    }
+
 
 }
