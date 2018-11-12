@@ -54,16 +54,16 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="triangle">
-                        <img src="{{assets('assets')}}/img/triangle.png" alt="">
-                    </div>
 
-                    <div class="swiper-button-prev">
-                        <i class="icon-arrow-left"></i>
-                    </div>
-                    <div class="swiper-button-next">
-                        <i class="icon-arrow-right"></i>
-                    </div>
+                </div>
+                <div class="triangle">
+                    <img src="{{assets('assets')}}/img/triangle.png" alt="">
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="icon-arrow-left"></i>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="icon-arrow-right"></i>
                 </div>
 
             </div>
@@ -108,10 +108,10 @@
                     loop: true,
                     slidesPerView: catCount,
                     slideToClickedSlide: true,
-                    autoplay: {
+                    /*autoplay: {
                         delay: 5000,
                         disableOnInteraction: false
-                    },
+                    },*/
                     navigation: {
                         nextEl: '.slider-2 .swiper-button-next',
                         prevEl: '.slider-2 .swiper-button-prev',
