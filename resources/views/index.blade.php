@@ -42,7 +42,8 @@
                                     <div class="text">
                                         <p class="main-title-font zigzag">{{$post->category->name}}</p>
                                         <p class="description">{{$post->title}}</p>
-                                        <div class="social" data-youtube="{{$post->media->path}}" data-url="{{$post->path}}"
+                                        <div class="social" data-youtube="{{$post->media->path}}"
+                                             data-url="{{$post->path}}"
                                              data-title="{!! $post->title !!}">
                                             <a href="javascript:void(0)" class="shareBtn facebook">FACEBOOK</a>
                                             <a href="javascript:void(0)" class="shareBtn twitter">TWITTER</a>
@@ -50,8 +51,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
                             </div>
+                        @endforeach
                     </div>
                     <div class="triangle">
                         <img src="{{assets('assets')}}/img/triangle.png" alt="">
