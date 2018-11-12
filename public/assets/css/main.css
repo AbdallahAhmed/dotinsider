@@ -208,7 +208,7 @@ header {
     right: 0; }
 
 .slider-2 {
-  padding-bottom: 112px;
+  padding: 112px 0;
   width: calc(85% - 135px); }
   .slider-2 .swiper-wrapper {
     margin-left: 50px; }
@@ -567,7 +567,7 @@ form {
 
 .triangle {
   position: absolute;
-  top: calc(100% - 287px);
+  top: 100%;
   right: 30%;
   z-index: -1; }
 
@@ -842,7 +842,8 @@ form {
   .home .slider-1 {
     margin: 25px 0 20px; }
   .home .channel {
-    padding-bottom: 95px; }
+    padding-bottom: 95px;
+    margin-left: 5vw !important; }
   .home .slider-2 .swiper-slide-active a:after {
     height: 0; }
   .home .slider-2 img {
@@ -1045,7 +1046,8 @@ form {
       left: auto; }
 
   .slider-2 {
-    width: auto; }
+    width: auto;
+    padding-top: 0; }
     .slider-2 .swiper-wrapper {
       margin-left: 0; }
     .slider-2 .swiper-button-next, .slider-2 .swiper-button-prev {

@@ -279,7 +279,7 @@ header {
 }
 
 .slider-2 {
-  padding-bottom: 112px;
+  padding: 112px 0;
   width: calc(85% - 135px);
   .swiper-wrapper {
     margin-left: 50px;
@@ -774,7 +774,7 @@ form {
 
 .triangle {
   position: absolute;
-  top: calc(100% - 287px);
+  top: 100%;
   right: 30%;
   z-index: -1;
 }
@@ -1172,6 +1172,7 @@ form {
     }
     .channel {
       padding-bottom: 95px;
+      margin-left: 5vw!important;
     }
     .slider-2 {
       .swiper-slide-active {
@@ -1480,6 +1481,7 @@ form {
   }
   .slider-2 {
     width: auto;
+    padding-top: 0;
     .swiper-wrapper {
       margin-left: 0;
     }

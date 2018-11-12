@@ -30,7 +30,9 @@
             "Dot\\Navigations\\":"plugins/navigations/src/",
             "Dot\\Categories\\":"plugins/categories/src/",
             "Dot\\Seasons\\":"plugins/seasons/src/",
-            "Dot\\Seo\\":"plugins/seo/src/"
+            "Dot\\Seo\\":"plugins/seo/src/",
+            "Dot\\Users\\":"plugins/users/src",
+            "Dot\\Media\\":"plugins/media/src"
         }
     },
     "autoload-dev": {
