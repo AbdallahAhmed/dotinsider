@@ -128,7 +128,7 @@
                                                                       name="ids[]"/>
                                         </th>
                                         <th>{{ trans("seasons::seasons.attributes.name") }}</th>
-                                        <th>Category</th>
+                                        <th>{{ trans("seasons::seasons.attributes.category_id") }}</th>
                                         <th>{{ trans("seasons::seasons.actions") }}</th>
                                     </tr>
                                     </thead>

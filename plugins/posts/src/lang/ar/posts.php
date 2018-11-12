@@ -31,7 +31,8 @@ return [
     'sure_activate' => "هل تريد تفعيل الخبر؟",
     'sure_deactivate' => "هل تريد إلغاء تفعيل الخبر",
     'sure_delete' => 'هل تريد حذف الخبر؟',
-    'add_category' => "أضف إلي قسم",
+    'add_category' => "أضف إلي قناة",
+    'add_season' => 'أضف إلي قائمة تشغيل ',
 
     'add_image' => 'أضف صورة',
     'change_image' => 'تغيير الصورة',

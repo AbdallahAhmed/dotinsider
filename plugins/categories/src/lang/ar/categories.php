@@ -2,15 +2,15 @@
 
 return [
 
-    'categories' => 'التصنيفات',
-    'category' => 'تصنيف',
-    'add_new' => 'أضف تصنيف جديد',
-    'edit' => 'تحرير التصنيف',
-    'back_to_categories' => 'العودة إلى التصنيفات',
-    'no_records' => 'لا يوجد تصنيفات',
-    'save_category' => 'حفظ التصنيف',
+    'categories' => 'القنوات',
+    'category' => 'قناة',
+    'add_new' => 'أضف قناة جديد',
+    'edit' => 'تحرير القناة',
+    'back_to_categories' => 'العودة إلى القنوات',
+    'no_records' => 'لا يوجد قنوات',
+    'save_category' => 'حفظ القناة',
     'search' => 'البحث',
-    'search_categories' => 'البحث فى التصنيفات',
+    'search_categories' => 'البحث فى القنوات',
     'per_page' => 'لكل صفحة',
     'bulk_actions' => 'اختر أمر',
     'delete' => 'حذف',
@@ -31,18 +31,18 @@ return [
     'add_image' => 'أضف صورة',
     'not_allowed_file' => 'ملف غير مسموح به',
     'attributes' => [
-        'name' => 'إسم التصنيف',
+        'name' => 'إسم القناة',
         'parent' => 'القسم الرئيسى',
         'slug' => 'الإسم اللطيف',
     ],
     "events" => [
-        'created' => 'تم إنشاء تصنيف بنجاح',
-        'updated' => 'تم حفظ التصنيف بنجاح',
+        'created' => 'تم إنشاء قناة بنجاح',
+        'updated' => 'تم حفظ القناة بنجاح',
         'deleted' => 'تم الحذف بنجاح',
 
     ],
     "permissions" => [
-        "manage" => "التحكم بالتصنيفات"
+        "manage" => "التحكم بالقنوات"
     ]
 
 ];

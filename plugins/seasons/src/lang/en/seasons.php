@@ -43,7 +43,7 @@ return [
 
     "cannot_delete_master" => "You can not delete master season",
     "required_master_season" => "master season required",
-    "delete_season" => "Delete season",
+    "deleltrte_season" => "Delete season",
     'category_category.id' => 'category_category.id',
     'category_cat_name' => 'category_cat_name',
     "not_categorized" => "Not categorized",

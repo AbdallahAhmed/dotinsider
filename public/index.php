@@ -8,7 +8,7 @@
  */
 
 define('LARAVEL_START', microtime(true));
-define('DIRECTION', 'ltr');
+define('DIRECTION', 'rtl');
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
