@@ -49,7 +49,7 @@
                                     @if (Request::get("order") == "ASC") selected='selected' @endif>{{ trans("seasons::seasons.asc") }}</option>
                             </select>
                             <button type="submit"
-                                    class="btn btn-primary">{{ trans("seasons::seasons.order") }}</button>
+                                    class="btn btn-primary" >{{ trans("seasons::seasons.order") }}</button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
@@ -101,7 +101,7 @@
                                         <option value="delete">{{ trans("seasons::seasons.delete") }}</option>
                                     </select>
                                     <button type="submit"
-                                            class="btn btn-primary pull-right">{{ trans("seasons::seasons.apply") }}</button>
+                                            class="btn btn-primary pull-right" id="action-button">{{ trans("seasons::seasons.apply") }}</button>
                                 </div>
 
                                 <div class="col-lg-6 col-md-4 hidden-sm hidden-xs"></div>
@@ -195,6 +195,27 @@
 
     <script>
         $(document).ready(function () {
+
+            $('#action-button').on('click', function (e) {
+                e.preventDefault();
+                bootbox.confirm({
+                        message: "هل تريد تنفيذ الأمر؟",
+                        buttons: {
+                            cancel: {
+                                label: "الغاء",
+                            },
+                            confirm: {
+                                label: "موافق",
+                            },
+                        },
+                        callback: function (result) {
+                            if (result) {
+                                $('.action_form').submit();
+                            }
+                        }
+                    },
+                );
+            })
 
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',

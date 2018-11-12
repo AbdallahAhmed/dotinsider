@@ -6,6 +6,7 @@ use Action;
 use Dot\Categories\Models\Category;
 use Dot\Seasons\Models\Season;
 use Dot\Platform\Controller;
+use Illuminate\Support\MessageBag;
 use Redirect;
 use Request;
 use View;
@@ -66,21 +67,21 @@ class SeasonsController extends Controller
 
         $ids = is_array($ids) ? $ids : [$ids];
 
+        $error = new MessageBag();
+        $error_id = array();
         foreach ($ids as $id) {
 
             $season = Season::findOrFail($id);
+            if(count($season->posts) > 0){
+                $error_id [] = $id;
+                $error->add('cat', $season->name." لا يمكن حذفه لان يوجد به فيديوهات ");
+                continue;
+            }
+            $season->delete();
 
-            // Fire deleting action
-
-            Action::fire("season.deleting", $season);
-
-            $season->categories()->detach();
-
-            // Fire deleted action
-
-            Action::fire("season.deleted", $season);
         }
-
+        if($error->count() > 0)
+            return Redirect::back()->withErrors($error);
         return Redirect::back()->with("message", trans("seasons::seasons.events.deleted"));
     }
 

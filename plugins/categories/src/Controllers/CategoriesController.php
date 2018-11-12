@@ -7,6 +7,7 @@ use Dot\Categories\Models\Category;
 use Dot\Platform\Controller;
 use Dot\Seasons\Models\Season;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\MessageBag;
 use Redirect;
 use Request;
 
@@ -60,11 +61,16 @@ class CategoriesController extends Controller
         $ids = Request::get("id");
 
         $ids = is_array($ids) ? $ids : [$ids];
-
+        $error = new MessageBag();
+        $error_id = array();
         foreach ($ids as $id) {
 
             $category = Category::findOrFail($id);
-
+            if(count($category->seasons) > 0){
+                $error_id [] = $id;
+                $error->add('cat', $category->name." لا يمكن حذفه لان يوجد به قوائم تشغيل. ");
+                continue;
+            }
             // Fire deleting action
 
             Action::fire("category.deleting", $category);
@@ -75,7 +81,8 @@ class CategoriesController extends Controller
 
             Action::fire("category.deleted", $category);
         }
-
+        if($error->count() > 0)
+            return Redirect::back()->withErrors($error);
         return Redirect::back()->with("message", trans("categories::categories.events.deleted"));
     }
 

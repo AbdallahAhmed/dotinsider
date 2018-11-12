@@ -49,7 +49,7 @@
                                     @if ($order == "ASC") selected='selected' @endif>{{ trans("posts::posts.asc") }}</option>
                             </select>
                             <button type="submit"
-                                    class="btn btn-primary">{{ trans("posts::posts.order") }}</button>
+                                    class="btn btn-primary" >{{ trans("posts::posts.order") }}</button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
@@ -156,7 +156,7 @@
                                     </select>
 
                                     <button type="submit"
-                                            class="btn btn-primary pull-right">{{ trans("posts::posts.apply") }}</button>
+                                            class="btn btn-primary pull-right" id="action-button">{{ trans("posts::posts.apply") }}</button>
 
                                 </div>
 
@@ -305,6 +305,26 @@
     <script>
 
         $(document).ready(function () {
+            $('#action-button').on('click', function (e) {
+                e.preventDefault();
+                bootbox.confirm({
+                        message: "هل تريد تنفيذ الأمر؟",
+                        buttons: {
+                            cancel: {
+                                label: "الغاء",
+                            },
+                            confirm: {
+                                label: "موافق",
+                            },
+                        },
+                        callback: function (result) {
+                            if (result) {
+                                $('.action_form').submit();
+                            }
+                        }
+                    },
+                );
+            })
 
             $('.datetimepick').datetimepicker({
                 format: 'YYYY-MM-DD HH:mm:ss',
