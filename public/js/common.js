@@ -6,6 +6,9 @@ $(function () {
 
         var $super = base.closest('.social-icon')
         url = $super.data('url');
+        if(url == undefined)
+            var $super = base.closest('.social')
+        url = $super.data('url');
         title = $super.data('title');
 
         if (base.hasClass("facebook")) {

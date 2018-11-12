@@ -268,7 +268,7 @@ header {
 }
 
 .slider-1 {
-  margin: 70px 0 120px 0;
+  margin: 70px 0 0 0;
   z-index: 1;
   .swiper-button-prev {
     right: 45px;
@@ -474,6 +474,7 @@ header {
         .message {
           margin-top: 50px;
           font-size: 12px;
+          color: #02D6D7;
         }
         form {
           display: flex;
@@ -482,8 +483,7 @@ header {
             background: $blue;
             border: none;
             padding: 15px 23px;
-            //color: $white;
-            color:  #02D6D7;
+            color: $white;
             width: 100%;
             font-family: "exo_2regular", sans-serif;
           }
@@ -701,7 +701,26 @@ form {
     }
   }
   .slider-1 {
-    margin-bottom: 70px;
+    .swiper-slide{
+      .slide-content{
+        position: relative;
+        margin-bottom: 70px;
+
+      }
+      .channel{
+        margin-left: calc((100vw - 1280px) / 2);
+        display: none;
+        opacity: 0;
+        transition: .5s;
+      }
+    }
+    .swiper-slide.swiper-slide-active {
+      .channel{
+        display: block;
+        transition: opacity 1s;
+        opacity: 1;
+      }
+    }
   }
   .channel {
     padding-bottom: 70px;
@@ -755,7 +774,7 @@ form {
 
 .triangle {
   position: absolute;
-  top: calc(100% - 30px);
+  top: calc(100% - 287px);
   right: 30%;
   z-index: -1;
 }
@@ -1061,6 +1080,7 @@ form {
       ul {
         .item-channel {
           margin: 16px 0 -10px;
+          padding-top: 0;
         }
         li {
           margin-bottom: 26px;
@@ -1191,6 +1211,7 @@ form {
     .width-75 {
       .main-title-font {
         margin-bottom: 15px;
+
       }
       .channels-logo {
         margin: 25px 0;

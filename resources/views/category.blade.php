@@ -115,6 +115,14 @@
                         success: function (data) {
                             if (data.count > 0) {
                                 $(data.view).insertBefore('.insert-more');
+                                $('.card').each(function () {
+                                    if ($(this).isInViewport()) {
+                                        $(this).css({
+                                            opacity: '1',
+                                            transform: 'translateY(-10px)'
+                                        });
+                                    }
+                                });
                                 offset += data.count;
                             }
                             $('.more').show()
