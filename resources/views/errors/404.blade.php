@@ -62,6 +62,15 @@
                             <div class="item-channel">
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
+                                        <?php
+                                        use Dot\Categories\Models\Category;
+                                        $cats = Category::whereHas('seasons', function ($query) {
+                                            $query->whereHas('posts', function ($query) {
+                                                $query->published();
+                                            });
+                                        })->get();
+                                        ?>
+
 
                                         @foreach($cats as $cat)
                                             <div class="swiper-slide">
@@ -88,7 +97,7 @@
                     <div class="social-icons">
                         <ul>
                             <li>
-                                <a href="{{option('facebook_page')}}" target="_blank" >
+                                <a href="{{option('facebook_page')}}" target="_blank">
                                     FACEBOOK
                                 </a>
                             </li>
@@ -138,8 +147,8 @@
     <script>
         var counter = 5;
         setInterval(function () {
-            c = -- counter;
-            if(c < 1){
+            c = --counter;
+            if (c < 1) {
                 window.location.href = '{{route('index')}}';
                 return;
             }
