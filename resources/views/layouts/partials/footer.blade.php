@@ -21,7 +21,7 @@
                 @foreach($nav2 as $nav)
                     <li><a href="{{nav_url($nav)}}">{{$nav->name}}</a></li>
                 @endforeach
-                <li><a href="{{route('contact-us.form')}}">Contact Us</a></li>
+                <li><a href="{{route('contact-us.form')}}">أتصل بنا</a></li>
             </ul>
         </div>
 

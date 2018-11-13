@@ -68,9 +68,8 @@
 
             </div>
             <div class="bg-v to-hide">
-                <a href="{{route('categories')}}" class="read">SEE ALL</a>
-                <a href="{{$posts_slider ? $posts_slider[0]->category->path : '#'}}" class="see" id="read-more">READ
-                    MORE</a>
+                <a href="{{route('categories')}}" class="read">الكل</a>
+                <a href="{{$posts_slider ? $posts_slider[0]->category->path : '#'}}" class="see" id="read-more">اقرأ المزيد</a>
             </div>
             <div class="bg-circle">
                 <img src="{{assets('assets')}}/img/Elements-Circle.png" alt="">
@@ -84,14 +83,14 @@
     </section>
     <section class="section-padding">
         <div class="container">
-            <p class="title-section main-title-font black-color zigzag title-video">Latest Videos</p>
+            <p class="title-section main-title-font black-color zigzag title-video">أخر الفيديوهات</p>
             <div class="cards">
                 @include('extensions.index-videos', ['posts'=>$main_posts])
                 <div class="insert-more" style="display: none;"></div>
             </div>
             @if(count($main_posts) == 12)
                 <div class="more">
-                    <a href="javascript:void(0)" class="btn-more">MORE <i class="icon-arrow-down"></i></a>
+                    <a href="javascript:void(0)" class="btn-more">المزيد <i class="icon-arrow-down"></i></a>
                 </div>
             @endif
         </div>

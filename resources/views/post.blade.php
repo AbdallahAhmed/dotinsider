@@ -21,7 +21,7 @@
 
                 <div class="back-home" id="scroll">
                     <a href="javascript:void(0)">
-                        EXPLORE NOW
+                        أكتشف الأن
                         <i class="icon-arrow-right"></i>
                     </a>
                 </div>
@@ -34,7 +34,7 @@
                 </a>
                 <div class="back-home">
                     <a href="{{route('index')}}">
-                        BACK TO HOME
+                        الرجوع الى الرئيسية
                         <i class="icon-arrow-left"></i>
 
                     </a>
@@ -53,14 +53,14 @@
     </section>
     <section class="section-padding">
         <div class="container">
-            <p class="title-section main-title-font title-video black-color zigzag">Related Videos</p>
+            <p class="title-section main-title-font title-video black-color zigzag">فيديوهات متعلقة</p>
             <div class="cards">
                @include('extensions.index-videos', ['posts' => $related_posts])
                 <div class="insert-more" style="display: none;"></div>
             </div>
             @if(count($related_posts) == 12)
                 <div class="more">
-                    <a href="javascript:void(0)" class="btn-more">MORE <i class="icon-arrow-down"></i></a>
+                    <a href="javascript:void(0)" class="btn-more">المزيد <i class="icon-arrow-down"></i></a>
                 </div>
             @endif
         </div>

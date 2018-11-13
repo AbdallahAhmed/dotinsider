@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title','Dotinsider | Categories')
+@section('title','Dotinsider | القنوات')
 @section('content')
     <section class="bg-section full-height">
         <div class="container">
             @include('layouts.partials.header')
             <div class="categories-channels to-hide">
-                <p class="title-section main-title-font  zigzag d-inline-block">Categories</p>
+                <p class="title-section main-title-font  zigzag d-inline-block">القنوات</p>
                 <div class="channels  d-inline-block">
                     @foreach($categories as $category)
                         <div class="img-channel d-inline-block">
@@ -16,7 +16,7 @@
                     <div class="insert-more" style="display: none;"></div>
                     @if(count($categories) == 12)
                         <div class="more">
-                            <a href="javascript:void(0)" class="btn-more">MORE <i class="icon-arrow-down"></i></a>
+                            <a href="javascript:void(0)" class="btn-more">المزيد <i class="icon-arrow-down"></i></a>
                         </div>
                     @endif
                 </div>

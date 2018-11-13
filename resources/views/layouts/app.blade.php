@@ -109,7 +109,7 @@
 
             <div class="back-home">
                 <a href="">
-                    EXPLORE NOW
+                    أكتشف المزيد
                     <i class="icon-arrow-right"></i>
                 </a>
             </div>
@@ -119,7 +119,7 @@
         <div class="details-container">
             <div class="back-home">
                 <a href="javascript: window.parent.closePopup()" class="close-popup">
-                    BACK TO HOME
+                    الرجوع الى الرئيسية
                     <i class="icon-arrow-left"></i>
                 </a>
             </div>

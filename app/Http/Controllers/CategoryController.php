@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $this->data['posts'] = $posts;
 
         return response()->json([
-            'view' => view('extensions.category-slider',['posts' => $this->data['posts']])->render(),
+            'view' => view('extensions.category-slider',['posts' => $this->data['posts'], "cat" => false])->render(),
             'count' => count($this->data['posts'])
         ]);
     }

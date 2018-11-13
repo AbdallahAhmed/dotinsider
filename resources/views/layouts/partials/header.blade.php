@@ -4,8 +4,8 @@
     </div>
     <div class="menu">
         <a href="javascript:void(0)">
-            <span>Menu</span>
-            <span class="close">Close</span>
+            <span>القائمة</span>
+            <span class="close">اغلاق</span>
             <i class="icon-menu"></i></a>
     </div>
 </header>
@@ -14,12 +14,12 @@
         <ul>
             <li>
                 <a href="{{route('index')}}" class="before-dot">
-                    Home
+                    الرئيسية
                 </a>
             </li>
             <li>
                 <a href="javascript:void(0)">
-                    Channels
+                    القنوات
                 </a>
                 <div class="item-channel">
                     <div class="swiper-container">
@@ -38,12 +38,12 @@
             </li>
             <li>
                 <a href="{{route('contact-us.form')}}">
-                    Contact Us
+                    أتصل بنا
                 </a>
             </li>
             <li>
                 <a href="{{route('pages.show', 'about-us')}}">
-                    About
+                    عن dotinsider
                 </a>
             </li>
         </ul>

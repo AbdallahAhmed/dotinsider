@@ -8,8 +8,8 @@
                 </div>
                 <div class="menu">
                     <a href="javascript:void(0)">
-                        <span>Menu</span>
-                        <span class="close">Close</span>
+                        <span>القائمة</span>
+                        <span class="close">اغلاق</span>
                         <i class="icon-menu"></i></a>
                 </div>
             </header>
@@ -34,65 +34,72 @@
 
             <div class="error-content to-hide">
                 <p class="main-title-font zigzag">
-                    Page not found
+                    الصفحة غير موجودة
                 </p>
                 <p>
-                    Sorry, but the page you were looking for was not found. Try checking the URL for the error, then
-                    press
-                    the refresh button in your browser or try to find something else in our site.
+                    عذرا ، ولكن الصفحة التي كنت تبحث عنها لم يتم العثور عليها. حاول التحقق من URL للخطأ ، ثم اضغط على زر
+                    التحديث في المتصفح الخاص بك أو حاول العثور على شيء آخر في موقعنا .
                 </p>
             </div>
 
             <div class="bg-v to-hide">
-                <a href="{{route('index')}}" class="read">BACK TO HOME</a>
-                <a href="#" class="see">YOU WILL BE REDIRECTED</a>
+                <a href="{{route('index')}}" class="read">العودة الي الرئيسية</a>
+                <a href="#" class="see">سيتم تحويلك</a>
             </div>
 
             <div class="menu-content category">
                 <div class="container">
                     <ul>
                         <li>
-                            <a href="javascript:void(0)" class="before-dot">
-                                Home
+                            <a href="{{route('index')}}" class="before-dot">
+                                الرئيسية
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
-                                Channels
+                                القنوات
                             </a>
                             <div class="item-channel">
-                                <a href="#"><img src="{{assets('assets')}}/img/Fel90.png" alt=""></a>
-                                <a href="#"><img src="{{assets('assets')}}/img/Ahadon%20Ahad.png" alt=""></a>
-                                <a href="#"><img src="{{assets('assets')}}/img/w%20laken%20zorafa2.png" alt=""></a>
-                                <a href="#"><img src="{{assets('assets')}}/img/seret%20Zayed.png" alt=""></a>
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+
+                                        @foreach($cats as $cat)
+                                            <div class="swiper-slide">
+                                                <a href="{{$cat->path}}"><img
+                                                            src="{{thumbnail($cat->image->path, 'cat-footer-logo')}}"
+                                                            alt="{{$cat->slug}}"></a>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">
-                                Contact Us
+                            <a href="{{route('contact-us.form')}}">
+                                أتصل بنا
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">
-                                About
+                            <a href="{{route('pages.show', 'about-us')}}">
+                                عن dotinsider
                             </a>
                         </li>
                     </ul>
                     <div class="social-icons">
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{option('facebook_page')}}" target="_blank" >
                                     FACEBOOK
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{option('twitter_page')}}" target="_blank">
                                     TWITTER
                                 </a>
                             </li>
                             <li>
 
-                                <a href="#">
+                                <a href="{{option('youtube_page')}}" target="_blank">
                                     YOUTUBE
                                 </a>
                             </li>

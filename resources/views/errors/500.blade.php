@@ -47,11 +47,10 @@
 
         <div class="error-content to-hide">
             <p class="main-title-font zigzag">
-                Server Error
+                خطأ في النظام الداخلي
             </p>
             <p>
-                The server has something unexpected that did not allow the request to be completed.
-                We apologize.
+                لقد الخادم شيء غير متوقع لم يسمح  بإتمام الطلب. ونحن نعتذر .
             </p>
         </div>
 
@@ -64,47 +63,55 @@
             <div class="container">
                 <ul>
                     <li>
-                        <a href="javascript:void(0)" class="before-dot">
-                            Home
+                        <a href="{{route('index')}}" class="before-dot">
+                            الرئيسية
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)">
-                            Channels
+                            القنوات
                         </a>
                         <div class="item-channel">
-                            <a href="#"><img src="{{assets('assets')}}/img/Fel90.png" alt=""></a>
-                            <a href="#"><img src="{{assets('assets')}}/img/Ahadon%20Ahad.png" alt=""></a>
-                            <a href="#"><img src="{{assets('assets')}}/img/w%20laken%20zorafa2.png" alt=""></a>
-                            <a href="#"><img src="{{assets('assets')}}/img/seret%20Zayed.png" alt=""></a>
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+
+                                    @foreach($cats as $cat)
+                                        <div class="swiper-slide">
+                                            <a href="{{$cat->path}}"><img
+                                                        src="{{thumbnail($cat->image->path, 'cat-footer-logo')}}"
+                                                        alt="{{$cat->slug}}"></a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">
-                            Contact Us
+                        <a href="{{route('contact-us.form')}}">
+                            أتصل بنا
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">
-                            About
+                        <a href="{{route('pages.show', 'about-us')}}">
+                            عن dotinsider
                         </a>
                     </li>
                 </ul>
                 <div class="social-icons">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{option('facebook_page')}}" target="_blank" >
                                 FACEBOOK
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{option('twitter_page')}}" target="_blank">
                                 TWITTER
                             </a>
                         </li>
                         <li>
 
-                            <a href="#">
+                            <a href="{{option('youtube_page')}}" target="_blank">
                                 YOUTUBE
                             </a>
                         </li>
@@ -127,6 +134,7 @@
                 <img src="{{assets('assets')}}/img/Elements-Triangle-2.png" alt="">
             </div>
         </div>
+
 
     </div>
     <div class="bg-circle">

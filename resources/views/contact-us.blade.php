@@ -5,9 +5,9 @@
         <div class="container">
     @include('layouts.partials.header')
             <div class="contact-section to-hide">
-                <p class="title-section main-title-font zigzag d-inline-block">Contact us</p>
-                <div class="d-inline-block main-title-font smaller w-75 margin-20">How can we help?</div>
-                <p class="main-title-font zigzag d-inline-block title-form">Contact form</p>
+                <p class="title-section main-title-font zigzag d-inline-block">أتصل بنا</p>
+                <div class="d-inline-block main-title-font smaller w-75 margin-20">كيف يمكن ان نساعدك؟</div>
+                <p class="main-title-font zigzag d-inline-block title-form">تسجيل التعليق</p>
                 <style>
                     #contact-form p{
                         display: none;
@@ -15,33 +15,33 @@
                 </style>
                 <form class="d-inline-block" id="contact-form">
                     <div class="frist-input d-inline-block">
-                        <input type="text" placeholder="FIRST NAME" pattern="^[A-Za-z -]+$" name="first_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
+                        <input type="text" placeholder="الأسم الأول" pattern="^[A-Za-z -]+$" name="first_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
                         <p id="ef">First name should be between 3 and 50 letter </p>
                     </div>
                     <div class="frist-input d-inline-block">
-                        <input type="text" placeholder="LAST NAME" pattern="^[A-Za-z -]+$" name="last_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
+                        <input type="text" placeholder="الأسم الأخير" pattern="^[A-Za-z -]+$" name="last_name" minlength="3" maxlength="50" min-characters="3" max-characters="50" required>
                         <p id="el">Last name should be between 3 and 50 letter </p>
                     </div>
                     <div class="frist-input d-inline-block phone">
-                        <input type="text" pattern="[0-9]*" name="number" placeholder="PHONE NUMBER" minlength="11" maxlength="11" min-characters="11" max-characters="11" required>
+                        <input type="text" pattern="[0-9]*" name="number" placeholder="رقم التليفون" minlength="11" maxlength="11" min-characters="11" max-characters="11" required>
                         <p id="ep">Phone number should be 11 number </p>
                     </div>
                     <div class="frist-input d-inline-block">
-                        <input type="email" placeholder="EMAIL" name="email" minlength="6" maxlength="50" min-characters="6" max-characters="50" required>
+                        <input type="email" placeholder="الايميل" name="email" minlength="6" maxlength="50" min-characters="6" max-characters="50" required>
                         <p id="ee">Please fill this with a valid email</p>
                     </div>
                     <div class="frist-input message">
-                        <textarea placeholder="YOUR MESSAGE" name="message" minlength="3" maxlength="1000" min-characters="3" max-characters="1000"></textarea>
+                        <textarea placeholder="الرسالة" name="message" minlength="3" maxlength="1000" min-characters="3" max-characters="1000"></textarea>
                         <p id="em">Please fill this field</p>
                     </div>
 
                     <div>
-                        <button class="send" type="submit">SEND <i class="icon-arrow-right"></i></button>
+                        <button class="send" type="submit">تسجيل <i class="icon-arrow-right"></i></button>
 
                     </div>
                 </form>
-                <p class="message-2 main-title-font" style="display: none">Thanks for your message</p>
-                <p class="main-title-font  zigzag d-inline-block title-form">contact info</p>
+                <p class="message-2 main-title-font" style="display: none">شكرا لتواصلك معنا</p>
+                <p class="main-title-font  zigzag d-inline-block title-form">معلومات عنا</p>
                 <div class="d-inline-block  w-75">
                     <span>Abu Dhabi, UAE, 2454</span>
                     <span>+971 569888100</span>
