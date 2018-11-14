@@ -7,6 +7,7 @@ use Dot\Media\Models\Media;
 use Dot\Platform\Model;
 use Dot\Seasons\Models\Season;
 use Dot\Users\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Lang;
 
 /*
@@ -131,6 +132,16 @@ class Category extends Model
 
     function seasons(){
         return $this->hasMany(Season::class);
+    }
+
+    function getPostsAttribute(){
+        $seasons = $this->seasons()->get();
+
+        $posts = new Collection();
+        foreach ($seasons as $season){
+            $posts = $posts->merge($season->posts);
+        }
+        return $posts;
     }
 
     /**

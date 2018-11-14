@@ -59,7 +59,7 @@ class CategoryController extends Controller
                 $query->published();
             })
             ->get();
-        $slider_posts = $seasons[0]->posts;
+        $slider_posts = $category->posts;
 
         $posts = array();
         foreach ($seasons as $season) {
