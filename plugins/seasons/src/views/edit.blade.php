@@ -79,7 +79,8 @@
                             <div class="form-group">
                                 <select name="category_id" class="form-control chosen-select chosen-rtl">
                                     @foreach($categories as $cat)
-                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+
+                                        <option value="{{$cat->id}}" @if($season && $season->category_id == $cat->id) selected="selected"@endif >{{$cat->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
