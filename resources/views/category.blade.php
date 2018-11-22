@@ -82,7 +82,7 @@
     </section>
     <section class="section-padding">
         <div class="container">
-            <p class="title-section main-title-font black-color zigzag title-video">Latest Videos</p>
+            <p class="title-section main-title-font black-color zigzag title-video">أخر الفيديوهات</p>
             <div class="cards">
                 @include('extensions.index-videos', ['posts', $posts])
                 <div class="insert-more" style="display: none;"></div>
