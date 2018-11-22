@@ -50,7 +50,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="{{asset('assets')}}/js/main.js"></script>
     <script src="{{asset('')}}/js/common.js"></script>
-    <script data-pace-options='{ "ajax": false }' src="{{asset('')}}/js/pace.js"></script>
+    <script data-pace-options='{ "ajax": false }' src="{{asset('')}}js/pace.js"></script>
     <script>
         Pace.once('start', function () {
             document.getElementById('wrapper-body').style.opacity = "0";

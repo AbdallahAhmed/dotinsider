@@ -5,11 +5,12 @@
         <div class="container">
             @include('layouts.partials.header')
             <div class="slider-2 to-hide">
+
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         @foreach($cats as $cat)
                             <div class="swiper-slide" data-id="{{$cat->id}}">
-                                <a href="javascript:void(0)"><img
+                                <a href="{{ route('category.show', ['slug' => $cat->slug]) }}"><img
                                             src="{{thumbnail($cat->image->path, 'cat-footer-logo')}}" alt=""></a>
                             </div>
                         @endforeach
@@ -106,7 +107,7 @@
                     speed: 400,
                     loop: true,
                     slidesPerView: catCount,
-                    slideToClickedSlide: true,
+                    slideToClickedSlide: false,
                     /*autoplay: {
                         delay: 5000,
                         disableOnInteraction: false
@@ -128,6 +129,7 @@
                         },
                     },
                 });
+               /*
                 document.querySelector('.slider-1 .swiper-container').swiper.on('slideChange', function () {
                     $('#read-more').attr('href', $('#cat-slider').find('.swiper-slide-active').data('url'));
                 });
@@ -165,7 +167,7 @@
                         }
                     })
                 });
-
+                */
                 offset = 12
                 $('.btn-more').on('click', function (e) {
                     e.preventDefault();
