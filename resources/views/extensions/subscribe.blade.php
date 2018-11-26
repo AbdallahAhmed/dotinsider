@@ -8,10 +8,28 @@
     </div>
     <div class="container">
         <div class="images">
-            <img src="{{assets('assets')}}/img/iphones.png" alt="">
+            {{--<img src="{{assets('assets')}}/img/iphones.png" alt="">--}}
+            <div class="slider-subscribe rtl-container">
+                <div class="swiper-container " dir="rtl">
+                    <div class="swiper-wrapper ">
+                        @foreach($slider->files as $file)
+                        <div class="swiper-slide">
+                            <img src="{{ thumbnail($file->path , 'slider') }}" alt="{{ $file->title }}">
+                        </div>
+                        @endforeach
+                        {{--<div class="swiper-slide">--}}
+                            {{--<img src="{{ assets('assets')}}/img/iphones.png" alt="">--}}
+                        {{--</div>--}}
+                        {{--<div class="swiper-slide">--}}
+                            {{--<img src="{{ assets('assets')}}/img/iphones.png" alt="">--}}
+                        {{--</div>--}}
+                    </div>
+                </div>
+            </div>
             <div class="triangle">
                 <img src="{{assets('assets')}}/img/triangle.png" alt="">
             </div>
+
         </div>
         <div class="text-container">
             <div class="text">
@@ -24,6 +42,11 @@
                     <button id="s-button"><i class="icon-right-thin"></i></button>
                 </form>
                 <p style="display: none" class="message"></p>
+                <div class="social">
+                    <a href="#" class="active-link">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Youtube</a>
+                </div>
             </div>
         </div>
     </div>
@@ -65,14 +88,31 @@
                     } else {
                         $('.message').css('display', 'block')
                         for (let error of json.errors)
-                            $('.message').html( error );
+                            $('.message').html(error);
                     }
-                })/*.fail(function (xhr, status, errorThrown) {
-                    alert('alert their error in request');
-                });*/
+                })
+                /*.fail(function (xhr, status, errorThrown) {
+                                    alert('alert their error in request');
+                                });*/
                 return false;
             });
 
+            var subscribe = new Swiper('.slider-subscribe .swiper-container', {
+                speed: 400,
+                slidesPerView: 1,
+                navigation: {
+                    nextEl: '.slider-1 .swiper-button-next',
+                    prevEl: '.slider-1 .swiper-button-prev',
+                },
+            });
+            subscribe.on('slideChange',() =>{
+                var children = $('.subscribe .social').children();
+                children.removeClass('active-link');
+                $(children[subscribe.activeIndex]).addClass('active-link')
+
+            });
+
         })
+
     </script>
 @endpush

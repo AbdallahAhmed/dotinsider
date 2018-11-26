@@ -21,17 +21,20 @@
             <div class="slider-1 rtl-container rtl right-mrg to-hide">
                 <div class="swiper-container video-container" dir="ltr">
                     <div class="swiper-wrapper" id="cat-slider">
-                        @foreach($slider_posts as $slider)
+                        <?php $x=0; ?>
+                        @foreach($category->category_feature as $slider)
+                            {{--{{ dd($slider->feature_image) }}--}}
                             <div class="swiper-slide">
-                                <img src="{{thumbnail($slider->image->path, 'main-slider')}}">
+                                <img src="{{thumbnail($category->feature_image[$x]->path,'main-slider')}}">
                                 <div class="over-element bg-h">
                                     <a href="javascript:void(0)" class="open"
-                                       data-poster="{{thumbnail($slider->image->path, 'video-details')}}"
-                                       data-link="{{$slider->media->path}}">
+                                       data-poster="{{thumbnail($slider->provider_image, 'video-details')}}"
+                                       data-link="{{$slider->path}}">
                                         <i class="icon-play-icon"></i>
                                     </a>
                                 </div>
                             </div>
+                                <?php ++$x; ?>
                         @endforeach
                     </div>
                 </div>

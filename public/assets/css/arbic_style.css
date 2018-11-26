@@ -374,9 +374,11 @@ header {
 }
 
 .back-home i {
-    vertical-align: sub;
+    vertical-align: middle;
     font-size: 27px;
     margin-right: 10px;
+    display: inline-block;
+    transform: rotate(180deg);
 }
 
 .category .container {
@@ -398,11 +400,11 @@ header {
 }
 
 .category .container .bg-v .read {
-    margin-top: 175px;
+    margin-top: 295px;
 }
 
 .category .container .bg-v .see {
-    margin-bottom: 70px;
+    margin-bottom: 106px;
 }
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
@@ -475,21 +477,23 @@ header {
     width: 50%;
     z-index: 1;
 }
-
+.active-link{
+    color: rgba(255, 255, 255, 0.5);
+}
 .subscribe .container .images {
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.subscribe .container .images img {
+.subscribe .container .images .slider-subscribe {
     max-width: 100%;
     z-index: 1;
     margin-right: -46px;
 }
 
 .subscribe .container .images .triangle {
-    top: calc(100% - 120px);
+    top: calc(100% - 130px);
     left: 70%;
 }
 
@@ -514,6 +518,20 @@ header {
     margin-top: 50px;
     font-size: 12px;
     color: #02D6D7;
+}
+
+.subscribe .container .text-container .text .social {
+    display: flex;
+    margin-top: 25px;
+}
+.subscribe .container .text-container .text .social a{
+    font-family: 'lato-m', sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-left: 40px;
+}
+.subscribe .container .text-container .text .social a:hover{
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .subscribe .container .text-container .text form {
@@ -547,6 +565,7 @@ footer {
     padding: 26px 0;
     background: #122689;
     border-top: 5px solid #02D6D7;
+    direction: ltr;
 }
 
 footer .container {
@@ -563,7 +582,7 @@ footer ul li:not(:first-child) {
 }
 
 footer a:not(:first-child) {
-    margin-right: 40px;
+    margin-left: 40px;
 }
 
 footer a:hover {
@@ -1052,6 +1071,11 @@ form .frist-input p {
     min-height: 100vh;
 }
 
+.icon-right-thin {
+    transform: rotate(180deg);
+    display: inline-block;
+}
+
 @media only screen and (max-width: 1422px) {
     .video-container .open {
         right: 5vw;
@@ -1074,7 +1098,7 @@ form .frist-input p {
     }
 
     .home .slider-1 .swiper-slide .channel {
-        padding-right: 5vw!important;
+        padding-right: 0 !important;
     }
 
     .bg-circle {
@@ -1221,7 +1245,11 @@ form .frist-input p {
     }
 
     .home .slider-1 {
-        margin: 25px 0 20px;
+        margin: 25px 0 0px;
+    }
+
+    .home.category .container .bg-v{
+        z-index: 9999;
     }
 
     .home .channel {

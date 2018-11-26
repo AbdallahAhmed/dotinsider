@@ -4,6 +4,9 @@ namespace App\Providers;
 
 
 use Dot\Categories\Models\Category;
+//use Dot\Galleries\Galleries;
+use Dot\Galleries\Galleries;
+use Dot\Galleries\Models\Gallery;
 use Dot\Navigations\Models\Nav;
 use Dot\Seasons\Models\Season;
 use Illuminate\Support\ServiceProvider;
@@ -24,6 +27,13 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('layouts.partials.header', function ($view) use ($cats) {
             $view->with('cats', $cats);
+        });
+
+        view()->composer('extensions.subscribe', function ($view) {
+
+            $slider = Gallery::get()->first();
+
+            $view->with('slider', $slider);
         });
 
         view()->composer('layouts.partials.footer', function ($view) use ($cats) {

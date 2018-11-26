@@ -33,7 +33,7 @@
                         <i class="vid fa fa-play-circle"></i>
                     @endif
                     @if ($row->provider == "youtube")
-                        <img src="http://img.youtube.com/vi/{{ $row->path }}/0.jpg">
+                        <img src="http://img.youtube.com/vi/{{ $row->path }}/4.jpg">
                     @else
                         <img src="{{ thumbnail($row->path) }}">
                     @endif

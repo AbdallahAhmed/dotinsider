@@ -152,4 +152,14 @@ class Category extends Model
     {
         return route('category.show', ['slug' => $this->slug]);
     }
+
+    public function category_feature()
+    {
+        return $this->belongsToMany(Media::class,'category_feature','category_id','video_id')->withPivot('image_id');
+    }
+
+    public function feature_image()
+    {
+        return $this->belongsToMany(Media::class,'category_feature','category_id','image_id');
+    }
 }

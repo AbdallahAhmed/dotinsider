@@ -7,6 +7,7 @@ use Dot\Categories\Models\Category;
 use Dot\Platform\Controller;
 use Dot\Seasons\Models\Season;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\MessageBag;
 use Redirect;
 use Request;
@@ -116,6 +117,7 @@ class CategoriesController extends Controller
 
             $category->save();
 
+            $category->category_feature()->sync(array_filter(Request::get("media_id", [])));
             // Fire saved action
 
             Action::fire("category.saved", $category);
@@ -148,6 +150,7 @@ class CategoriesController extends Controller
             $category->excerpt = Request::get('excerpt');
             $category->status = 1;
             $category->lang = app()->getLocale();
+           //$category->category_feature()->sync(array_filter(Request::get("media_id", [])));
 
             // Fire saving action
 
@@ -157,8 +160,22 @@ class CategoriesController extends Controller
                 return Redirect::back()->withErrors($category->errors())->withInput(Request::all());
             }
 
+            $x = 0;
+            $arr = array();
+
+            foreach (array_filter(Request::get("media_id")) as $video){
+                $image = array_filter(Request::get("images"))[$x];
+                $arr[$video] = array('image_id' => $image);
+                $x++;
+            }
+                $category->category_feature()->syncWithoutDetaching($arr);
+
             $category->save();
 
+
+
+           // $image_update = DB::table('category_feature')->where('category_id',$category->id)->feature_image()->sync(array_filter(Request::get("images", [])));
+            //dd($image_update->save());
             // Fire saved action
 
             Action::fire("category.saved", $category);
