@@ -106,6 +106,10 @@ class CategoriesController extends Controller
             $category->user_id = Auth::user()->id;
             $category->status = 1;
             $category->lang = app()->getLocale();
+            $x = 0;
+            $arr = array();
+
+
 
             // Fire saving action
 
@@ -116,6 +120,12 @@ class CategoriesController extends Controller
             }
 
             $category->save();
+            foreach (array_filter(Request::get("media_id")) as $video){
+                $image = array_filter(Request::get("images"))[$x];
+                $arr[$video] = array('image_id' => $image);
+                $x++;
+            }
+            $category->category_feature()->syncWithoutDetaching($arr);
 
             $category->category_feature()->sync(array_filter(Request::get("media_id", [])));
             // Fire saved action

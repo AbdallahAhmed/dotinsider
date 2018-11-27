@@ -127,7 +127,7 @@
                                     @if ($category)
                                         <?php $x=0; ?>
                                         @foreach($category->category_feature as $feature)
-                                                {{--{{ dd($category->feature_image[$x]) }}--}}
+
                                             <div class="col-md-12">
                                                 <div class="panel panel-default col-md-6">
                                                     <div class="panel-heading">
@@ -141,7 +141,7 @@
                                                     <div class="panel-body form-group">
                                                         <div class="row post-image-block">
                                                             <input type="hidden" name="images[]" class="post-image-id"
-                                                                   value="{{ $category->feature_image[$x]->id }}">
+                                                                   value="{{ ((sizeof($category->feature_image) > 0)?$category->feature_image[$x]->id:'') }}">
 
                                                             <a class="add-post-image label" href="javascript:void(0)">
                                                                 <i class="fa fa-pencil text-navy"></i>
@@ -150,7 +150,7 @@
 
                                                             <a class="post-media-preview" href="javascript:void(0)">
                                                                 <img width="100%" height="130px" class="post-image"
-                                                                     src="{{ ($feature and @$category->feature_image[$x]) ? thumbnail($category->feature_image[$x]->path) : assets("admin::default/image.png") }}">
+                                                                     src="{{ (sizeof($category->feature_image) > 0) ? thumbnail($category->feature_image[$x]->path) : assets("admin::default/image.png") }}">
                                                             </a>
                                                         </div>
                                                     </div>
