@@ -119,16 +119,17 @@
 
                         <div class="panel-body row">
 
-
                             <div class="form-group meta-rows">
 
                                 <div class="meta-row">
 
                                     @if ($category)
-                                        <?php $x=0; ?>
-                                        @foreach($category->category_feature as $feature)
+                                        <?php $x = 0; ?>
+                                        {{--{{dd($category->feature_image )}}--}}
+                                        @foreach($category->feature_image  as $key => $feature)
 
                                             <div class="col-md-12">
+                                                <input type="hidden" value="{{$key}}" name="update[]">
                                                 <div class="panel panel-default col-md-6">
                                                     <div class="panel-heading">
                                                         <i class="fa fa-camera"></i>
@@ -140,8 +141,10 @@
                                                     </div>
                                                     <div class="panel-body form-group">
                                                         <div class="row post-image-block">
+
                                                             <input type="hidden" name="images[]" class="post-image-id"
-                                                                   value="{{ ((sizeof($category->feature_image) > 0)?$category->feature_image[$x]->id:'') }}">
+
+                                                                   value="{{ $feature->image_id }}">
 
                                                             <a class="add-post-image label" href="javascript:void(0)">
                                                                 <i class="fa fa-pencil text-navy"></i>
@@ -150,12 +153,11 @@
 
                                                             <a class="post-media-preview" href="javascript:void(0)">
                                                                 <img width="100%" height="130px" class="post-image"
-                                                                     src="{{ (sizeof($category->feature_image) > 0) ? thumbnail($category->feature_image[$x]->path) : assets("admin::default/image.png") }}">
+                                                                     src="{{ ($feature->image_id != 0) ? thumbnail(\Dot\Media\Models\Media::find($feature->image_id)->path) : assets("admin::default/image.png") }}">
                                                             </a>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="panel panel-default col-md-6">
                                                     <div class="panel-heading">
                                                         <i class="fa fa-camera"></i>
@@ -168,7 +170,7 @@
                                                     <div class="panel-body form-group">
                                                         <div class="row post-media-block">
                                                             <input type="hidden" name="media_id[]" class="post-media-id"
-                                                                   value="{{ $feature->id }}">
+                                                                   value="{{ (($feature->video_id != 0)?$category->category_feature[$x]->id:'') }}">
 
                                                             <a class="change-post-media label"
                                                                href="javascript:void(0)">
@@ -178,16 +180,19 @@
 
                                                             <a class="post-media-preview" href="javascript:void(0)">
                                                                 <img width="100%" height="130px" class="post-media"
-                                                                     src="{{ ($feature and @ $feature->provider_image) ? ($feature->provider_image) : assets("admin::default/video.png") }}">
+                                                                     src="{{ ($feature->video_id != 0) ? ($category->category_feature[$x]->provider_image) : assets("admin::default/video.png") }}">
                                                             </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                                <?php ++$x; ?>
+                                            <?php $x++; ?>
                                         @endforeach
+
                                     @endif
                                     <div class="col-md-12 row">
+                                        <input type="hidden" value="0" name="update[]">
+
                                         <div>
                                             <div class="panel panel-default col-md-6">
                                                 <div class="panel-heading">
@@ -200,7 +205,7 @@
                                                 <div class="panel-body form-group">
                                                     <div class="row post-image-block">
                                                         <input type="hidden" name="images[]" class="post-image-id"
-                                                               value="">
+                                                               value="0">
 
                                                         <a class="add-post-image label" href="javascript:void(0)">
                                                             <i class="fa fa-pencil text-navy"></i>
@@ -225,7 +230,7 @@
                                                 <div class="panel-body form-group">
                                                     <div class="row post-media-block">
                                                         <input type="hidden" name="media_id[]" class="post-media-id"
-                                                               value="">
+                                                               value="0">
 
                                                         <a class="change-post-media label" href="javascript:void(0)">
                                                             <i class="fa fa-pencil text-navy"></i>
@@ -401,6 +406,23 @@
                     }
                 });
             });
+
+            $('body').on('click', '.remove-post-media', function (e) {
+
+                var base = $(this).closest('.panel');
+                console.log(base)
+                // console.log(base.find(".post-media-id"))
+                base.find("input").first().val(0);
+                base.find(".post-media").attr("src", "{{ assets("admin::default/video.png") }}");
+            })
+
+            $('body').on('click', '.remove-post-image', function (e) {
+
+                var base = $(this).closest('.panel');
+                console.log(base)
+                base.find("input").first().val(0);
+                base.find(".post-image").attr("src", "{{ assets("admin::default/post.png") }}");
+            })
 
             $(".add_gallery").filemanager({
                 types: "image|video|audio|pdf",

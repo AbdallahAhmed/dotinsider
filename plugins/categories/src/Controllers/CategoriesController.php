@@ -98,6 +98,7 @@ class CategoriesController extends Controller
 
             $category = new Category();
 
+
             $category->name = Request::get('name');
             $category->slug = Request::get('slug');
             $category->image_id = Request::get('image_id');
@@ -173,22 +174,26 @@ class CategoriesController extends Controller
             $x = 0;
             $arr = array();
 
-            foreach (array_filter(Request::get("media_id")) as $video){
-                $image = array_filter(Request::get("images"))[$x];
-                $arr[$video] = array('image_id' => $image);
+            foreach (array_values(Request::get("media_id")) as $video){
+
+                if($video != 0 && Request::get("images") != 0 ){
+                    $image = array_values(Request::get("images"))[$x];
+//                    $update = Request::get('update')[$x];
+                    $arr[$video] = array('image_id' => $image);
+                }
+
                 $x++;
             }
-                $category->category_feature()->syncWithoutDetaching($arr);
+
+                $category->category_feature()->sync($arr);
 
             $category->save();
 
 
-
-           // $image_update = DB::table('category_feature')->where('category_id',$category->id)->feature_image()->sync(array_filter(Request::get("images", [])));
-            //dd($image_update->save());
             // Fire saved action
 
             Action::fire("category.saved", $category);
+
 
             return Redirect::route("admin.categories.edit", array("id" => $id))->with("message", trans("categories::categories.events.updated"));
         }

@@ -2,6 +2,7 @@
 
 namespace Dot\Categories\Models;
 
+use App\CategoryFeature;
 use DB;
 use Dot\Media\Models\Media;
 use Dot\Platform\Model;
@@ -155,11 +156,16 @@ class Category extends Model
 
     public function category_feature()
     {
-        return $this->belongsToMany(Media::class,'category_feature','category_id','video_id')->withPivot('image_id');
+        return $this->belongsToMany(Media::class,'category_features','category_id','video_id')->withPivot('image_id');
     }
 
     public function feature_image()
     {
-        return $this->belongsToMany(Media::class,'category_feature','category_id','image_id');
+        return $this->hasMany('App\CategoryFeature','category_id');
+    }
+
+    public function category_image()
+    {
+        return $this->belongsToMany(Media::class,'category_features','category_id','image_id');
     }
 }
