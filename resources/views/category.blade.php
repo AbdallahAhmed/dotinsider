@@ -23,9 +23,8 @@
                     <div class="swiper-wrapper" id="cat-slider">
                         <?php $x=0; ?>
                         @foreach($category->category_feature as $slider)
-                            {{--{{ dd($slider->feature_image) }}--}}
                             <div class="swiper-slide">
-                                <img src="{{thumbnail($category->feature_image[$x]->path,'main-slider')}}">
+                                <img src="{{thumbnail($category->category_image[$x]->path,'main-slider')}}">
                                 <div class="over-element bg-h">
                                     <a href="javascript:void(0)" class="open"
                                        data-poster="{{thumbnail($slider->provider_image, 'video-details')}}"
