@@ -69,8 +69,9 @@
 
             </div>
             <div class="bg-v to-hide">
-                <a href="{{route('categories')}}" class="read">الكل</a>
-                <a href="{{$posts_slider ? $posts_slider[0]->category->path : '#'}}" class="see" id="read-more">اقرأ المزيد</a>
+                <a href="{{route('categories')}}" class="read">كل القنوات</a>
+                <a href="{{$posts_slider ? $posts_slider[0]->category->path : '#'}}" class="see" id="read-more">انتقل
+                    للأسفل </a>
             </div>
             <div class="bg-circle">
                 <img src="{{assets('assets')}}/img/Elements-Circle.png" alt="">
@@ -81,6 +82,7 @@
             <div class="bg-group">
                 <img src="{{assets('assets')}}/img/absoluteGroup.png" alt="">
             </div>
+        </div>
     </section>
     <section class="section-padding">
         <div class="container">
@@ -129,20 +131,20 @@
                         },
                     },
                 });
-               /*
-                document.querySelector('.slider-1 .swiper-container').swiper.on('slideChange', function () {
-                    $('#read-more').attr('href', $('#cat-slider').find('.swiper-slide-active').data('url'));
-                });
-                mySwiper.on('slideChange', function () {
-                    var id = $('.slider-2').find('.swiper-slide-active').data('id');
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    $.ajax({
-                        type: "post",
-                        url: "{{route('category.posts')}}",
+                /*
+                 document.querySelector('.slider-1 .swiper-container').swiper.on('slideChange', function () {
+                     $('#read-more').attr('href', $('#cat-slider').find('.swiper-slide-active').data('url'));
+                 });
+                 mySwiper.on('slideChange', function () {
+                     var id = $('.slider-2').find('.swiper-slide-active').data('id');
+                     $.ajaxSetup({
+                         headers: {
+                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                         }
+                     });
+                     $.ajax({
+                         type: "post",
+                         url: "{{route('category.posts')}}",
                         data: {category_id: id},
                         success: function (data) {
                             destroy = document.querySelector('.slider-1 .swiper-container').swiper;

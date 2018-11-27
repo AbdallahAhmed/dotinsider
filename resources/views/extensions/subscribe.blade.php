@@ -13,15 +13,15 @@
                 <div class="swiper-container " dir="rtl">
                     <div class="swiper-wrapper ">
                         @foreach($slider->files as $file)
-                        <div class="swiper-slide">
-                            <img src="{{ thumbnail($file->path , 'slider') }}" alt="{{ $file->title }}">
-                        </div>
+                            <div class="swiper-slide">
+                                <img src="{{ thumbnail($file->path , 'slider') }}" alt="{{ $file->title }}">
+                            </div>
                         @endforeach
                         {{--<div class="swiper-slide">--}}
-                            {{--<img src="{{ assets('assets')}}/img/iphones.png" alt="">--}}
+                        {{--<img src="{{ assets('assets')}}/img/iphones.png" alt="">--}}
                         {{--</div>--}}
                         {{--<div class="swiper-slide">--}}
-                            {{--<img src="{{ assets('assets')}}/img/iphones.png" alt="">--}}
+                        {{--<img src="{{ assets('assets')}}/img/iphones.png" alt="">--}}
                         {{--</div>--}}
                     </div>
                 </div>
@@ -33,12 +33,10 @@
         </div>
         <div class="text-container">
             <div class="text">
-                <p class="main-title-font zigzag">dot<span>insider</span> is a must follow.</p>
-                <p>Get the stories that matter most, delivered directly to your social feeds. We’ve built a powerful
-                    video
-                    news network specifically for the new mobile first generation.</p>
+                <p class="main-title-font zigzag">أشترك الأن</p>
+                <p>نقدم فيديوهات مميزة اشترك الآن</p>
                 <form class="d-none" action="">
-                    <input id="email" type="email" placeholder="email">
+                    <input id="email" type="email" placeholder="البريد الالكترونى">
                     <button id="s-button"><i class="icon-right-thin"></i></button>
                 </form>
                 <p style="display: none" class="message"></p>
@@ -105,7 +103,7 @@
                     prevEl: '.slider-1 .swiper-button-prev',
                 },
             });
-            subscribe.on('slideChange',() =>{
+            subscribe.on('slideChange', () => {
                 var children = $('.subscribe .social').children();
                 children.removeClass('active-link');
                 $(children[subscribe.activeIndex]).addClass('active-link')
