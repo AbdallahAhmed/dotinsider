@@ -46,7 +46,7 @@ return [
         'cat-footer-logo' => array(124, 124),
         'main-slider' => array(1187, 344),
         'video-details' => array(1187, 668),
-        'slider'        => array(678,906)
+        'slider'        => array(236,474)
     ],
 
     /*
