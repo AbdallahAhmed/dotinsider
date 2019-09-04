@@ -21,4 +21,5 @@ Route::post('/subscribe', ['uses' => 'HomeController@subscribe'])->name('subscri
 Route::get('/page/{slug}', ['uses' => 'PageController@show'])->name('pages.show');
 Route::get('/video/{slug}', ['uses' => 'PostController@show'])->name('posts.show');
 Route::post('/season', ['uses' => 'SeasonController@posts'])->name('season.posts');
+Route::get('/season/{id}',['uses' => 'SeasonController@show'])->name('season.show');
 Route::get('/regenerate_media/{offset?}', 'MediaRegeneratController@regenerate_media')->name('media.cron');
